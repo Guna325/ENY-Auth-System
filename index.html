@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENY - Everything Near You</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>ENY</h2>
+        <p>Everything Near You</p>
+        
+        <div id="login-form">
+            <h3>Login</h3>
+            <input type="text" id="login-mobile" placeholder="Mobile Number">
+            <input type="password" id="login-password" placeholder="Password">
+            <button onclick="login()">Login</button>
+            <p><a href="#" onclick="showResetForm()">Forgot Credentials?</a></p>
+            <p><a href="#" onclick="showRegister()">Sign Up</a></p>
+        </div>
+
+        <div id="register-form" class="hidden">
+            <h3>Register</h3>
+            <input type="text" id="reg-username" placeholder="Username">
+            <input type="text" id="reg-mobile" placeholder="Mobile Number">
+            <button onclick="sendOTP('mobile')">Verify Mobile</button>
+            <input type="email" id="reg-email" placeholder="Email">
+            <button onclick="sendOTP('email')">Verify Email</button>
+            <input type="text" id="reg-aadhar" placeholder="Aadhaar Number">
+            <button onclick="sendOTP('aadhar')">Verify Aadhaar</button>
+            <input type="password" id="reg-password" placeholder="Password">
+            <button onclick="register()">Submit</button>
+            <p><a href="#" onclick="showLogin()">Back to Login</a></p>
+        </div>
+
+        <div id="reset-form" class="hidden">
+            <h3>Recover Username & Password</h3>
+            <input type="text" id="reset-aadhar" placeholder="Aadhaar Number">
+            <button onclick="recoverCredentials()">Recover</button>
+            <div id="reset-details" class="hidden">
+                <p>Username: <span id="recovered-username"></span></p>
+                <p>Password: <span id="recovered-password"></span></p>
+            </div>
+            <p><a href="#" onclick="showLogin()">Back to Login</a></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
